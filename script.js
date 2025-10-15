@@ -1,4 +1,332 @@
 
+// ===========================
+// SHORT-FORM CAROUSEL FUNCTIONALITY - FIXED
+// ===========================
+
+(function() {
+    'use strict';
+    
+    class ShortFormCarousel {
+        constructor() {
+            this.track = document.getElementById('shortformCarouselTrack');
+            this.prevBtn = document.getElementById('shortformPrev');
+            this.nextBtn = document.getElementById('shortformNext');
+            this.dotsContainer = document.getElementById('shortformDots');
+            
+            if (!this.track || !this.prevBtn || !this.nextBtn) {
+                console.warn('Carousel elements not found');
+                return;
+            }
+            
+            this.slides = Array.from(this.track.querySelectorAll('.shortform-carousel-slide'));
+            this.totalSlides = this.slides.length;
+            this.currentPage = 0;
+            this.slidesPerPage = this.getSlidesPerPage();
+            this.totalPages = Math.ceil(this.totalSlides / this.slidesPerPage);
+            
+            // Touch/drag variables
+            this.isDragging = false;
+            this.startPos = 0;
+            this.currentTranslate = 0;
+            this.prevTranslate = 0;
+            
+            this.init();
+        }
+        
+        init() {
+            this.createDots();
+            this.updateCarousel();
+            this.attachEventListeners();
+            
+            console.log(`✓ Carousel initialized: ${this.totalSlides} slides, ${this.slidesPerPage} per page, ${this.totalPages} pages`);
+            
+            // Recalculate on window resize
+            window.addEventListener('resize', this.debounce(() => {
+                const oldSlidesPerPage = this.slidesPerPage;
+                this.slidesPerPage = this.getSlidesPerPage();
+                
+                if (oldSlidesPerPage !== this.slidesPerPage) {
+                    this.totalPages = Math.ceil(this.totalSlides / this.slidesPerPage);
+                    this.currentPage = 0; // Reset to first page on layout change
+                    this.createDots();
+                    this.updateCarousel();
+                    console.log(`Layout changed: ${this.slidesPerPage} slides per page`);
+                }
+            }, 250));
+        }
+        
+        getSlidesPerPage() {
+            const width = window.innerWidth;
+            if (width < 768) return 1;      // Mobile: 1 video
+            if (width < 1024) return 2;     // Tablet: 2 videos
+            return 3;                        // Desktop: 3 videos
+        }
+        
+        createDots() {
+            if (!this.dotsContainer) return;
+            
+            this.dotsContainer.innerHTML = '';
+            
+            for (let i = 0; i < this.totalPages; i++) {
+                const dot = document.createElement('button');
+                dot.classList.add('carousel-dot');
+                dot.setAttribute('aria-label', `Go to page ${i + 1}`);
+                dot.addEventListener('click', () => this.goToPage(i));
+                this.dotsContainer.appendChild(dot);
+            }
+        }
+        
+        attachEventListeners() {
+            // Navigation buttons
+            this.prevBtn.addEventListener('click', () => this.prev());
+            this.nextBtn.addEventListener('click', () => this.next());
+            
+            // Touch/Mouse drag events
+            this.track.addEventListener('mousedown', this.dragStart.bind(this));
+            this.track.addEventListener('touchstart', this.dragStart.bind(this), { passive: true });
+            
+            this.track.addEventListener('mousemove', this.drag.bind(this));
+            this.track.addEventListener('touchmove', this.drag.bind(this), { passive: false });
+            
+            this.track.addEventListener('mouseup', this.dragEnd.bind(this));
+            this.track.addEventListener('touchend', this.dragEnd.bind(this));
+            
+            this.track.addEventListener('mouseleave', this.dragEnd.bind(this));
+            
+            // Prevent context menu on long press
+            this.track.addEventListener('contextmenu', (e) => e.preventDefault());
+            
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (this.isCarouselInView()) {
+                    if (e.key === 'ArrowLeft') this.prev();
+                    if (e.key === 'ArrowRight') this.next();
+                }
+            });
+        }
+        
+        isCarouselInView() {
+            const rect = this.track.getBoundingClientRect();
+            return rect.top < window.innerHeight && rect.bottom > 0;
+        }
+        
+        dragStart(e) {
+            this.isDragging = true;
+            this.startPos = this.getPositionX(e);
+            this.prevTranslate = -this.currentPage * 100;
+            this.track.style.transition = 'none';
+        }
+        
+        drag(e) {
+            if (!this.isDragging) return;
+            
+            const currentPosition = this.getPositionX(e);
+            const containerWidth = this.track.parentElement.offsetWidth;
+            const diff = currentPosition - this.startPos;
+            const diffPercent = (diff / containerWidth) * 100;
+            
+            this.currentTranslate = this.prevTranslate + diffPercent;
+            
+            // Apply bounds
+            const maxTranslate = 0;
+            const minTranslate = -(this.totalPages - 1) * 100;
+            this.currentTranslate = Math.max(minTranslate, Math.min(maxTranslate, this.currentTranslate));
+            
+            this.track.style.transform = `translateX(${this.currentTranslate}%)`;
+            
+            // Prevent default scrolling on touch devices
+            if (e.type === 'touchmove') {
+                e.preventDefault();
+            }
+        }
+        
+        dragEnd() {
+            if (!this.isDragging) return;
+            this.isDragging = false;
+            
+            const movedBy = this.currentTranslate - this.prevTranslate;
+            const threshold = 10; // 10% movement threshold
+            
+            if (movedBy < -threshold && this.currentPage < this.totalPages - 1) {
+                this.next();
+            } else if (movedBy > threshold && this.currentPage > 0) {
+                this.prev();
+            } else {
+                this.updateCarousel();
+            }
+        }
+        
+        getPositionX(e) {
+            return e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+        }
+        
+        prev() {
+            if (this.currentPage > 0) {
+                this.currentPage--;
+                this.updateCarousel();
+            }
+        }
+        
+        next() {
+            if (this.currentPage < this.totalPages - 1) {
+                this.currentPage++;
+                this.updateCarousel();
+            }
+        }
+        
+        goToPage(pageIndex) {
+            this.currentPage = Math.max(0, Math.min(pageIndex, this.totalPages - 1));
+            this.updateCarousel();
+        }
+        
+        updateCarousel() {
+            // Enable transition
+            this.track.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+            
+            // Calculate translate percentage
+            const translateX = -this.currentPage * 100;
+            this.track.style.transform = `translateX(${translateX}%)`;
+            
+            this.updateButtons();
+            this.updateDots();
+            this.muteNonVisibleVideos();
+            
+            console.log(`Current page: ${this.currentPage + 1}/${this.totalPages}`);
+        }
+        
+        updateButtons() {
+            // Disable/enable buttons based on position
+            this.prevBtn.disabled = this.currentPage === 0;
+            this.nextBtn.disabled = this.currentPage >= this.totalPages - 1;
+        }
+        
+        updateDots() {
+            if (!this.dotsContainer) return;
+            
+            const dots = this.dotsContainer.querySelectorAll('.carousel-dot');
+            
+            dots.forEach((dot, index) => {
+                if (index === this.currentPage) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+        
+        muteNonVisibleVideos() {
+            // Calculate which slides are visible
+            const startIndex = this.currentPage * this.slidesPerPage;
+            const endIndex = startIndex + this.slidesPerPage;
+            
+            this.slides.forEach((slide, index) => {
+                const video = slide.querySelector('video');
+                const button = slide.querySelector('.showcase-mute');
+                
+                if (!video) return;
+                
+                const isVisible = index >= startIndex && index < endIndex;
+                
+                if (!isVisible && !video.muted) {
+                    video.muted = true;
+                    
+                    if (button) {
+                        button.classList.remove('unmuted');
+                        const icon = button.querySelector('.mute-icon');
+                        if (icon) icon.textContent = '🔇';
+                        button.setAttribute('aria-label', 'Unmute sound');
+                    }
+                }
+            });
+        }
+        
+        debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+    }
+    
+    // Initialize carousel
+    function initShortFormCarousel() {
+        const showcasePage = document.getElementById('moreProjectsPage');
+        
+        if (!showcasePage) {
+            console.log('Showcase page not found, waiting...');
+            return null;
+        }
+        
+        const carouselTrack = document.getElementById('shortformCarouselTrack');
+        
+        if (!carouselTrack) {
+            console.log('Carousel track not found');
+            return null;
+        }
+        
+        // Create carousel instance
+        return new ShortFormCarousel();
+    }
+    
+    // Watch for showcase page opening
+    function watchForShowcasePage() {
+        const showcasePage = document.getElementById('moreProjectsPage');
+        
+        if (!showcasePage) {
+            setTimeout(watchForShowcasePage, 500);
+            return;
+        }
+        
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                if (mutation.attributeName === 'class') {
+                    const isActive = showcasePage.classList.contains('active');
+                    
+                    if (isActive && !window.shortFormCarouselInstance) {
+                        console.log('Showcase page opened - initializing carousel');
+                        setTimeout(() => {
+                            window.shortFormCarouselInstance = initShortFormCarousel();
+                        }, 400);
+                    }
+                }
+            });
+        });
+        
+        observer.observe(showcasePage, { attributes: true });
+    }
+    
+    // Initialize on page load
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.shortFormCarouselInstance = initShortFormCarousel();
+            watchForShowcasePage();
+        });
+    } else {
+        window.shortFormCarouselInstance = initShortFormCarousel();
+        watchForShowcasePage();
+    }
+    
+    // Also initialize when "Show More" is clicked
+    window.addEventListener('load', () => {
+        const showMoreBtn = document.getElementById('showMoreBtn');
+        if (showMoreBtn) {
+            showMoreBtn.addEventListener('click', () => {
+                setTimeout(() => {
+                    if (!window.shortFormCarouselInstance) {
+                        console.log('Initializing carousel after Show More click');
+                        window.shortFormCarouselInstance = initShortFormCarousel();
+                    }
+                }, 600);
+            });
+        }
+    });
+    
+})(); 
         // ===========================
         // VIDEO PERFORMANCE OPTIMIZATION
         // ===========================
@@ -172,6 +500,397 @@
         const shortformSlider = document.getElementById('shortformSlider');
         const shortformDots = document.querySelectorAll('.shortform-dot');
 
+        // ===========================
+// VIDEO MUTE/UNMUTE TOGGLE FUNCTIONALITY (FIXED)
+// ===========================
+
+(function() {
+    'use strict';
+    
+    /**
+     * Initialize mute toggle functionality for all video mockups
+     */
+    function initMuteToggle() {
+        const muteButtons = document.querySelectorAll('.mute-toggle');
+        
+        if (muteButtons.length === 0) {
+            console.warn('No mute buttons found');
+            return;
+        }
+        
+        console.log(`Found ${muteButtons.length} mute buttons`);
+        
+        muteButtons.forEach(button => {
+            const videoId = button.getAttribute('data-video-target');
+            const video = document.querySelector(`video[data-video-id="${videoId}"]`);
+            
+            if (!video) {
+                console.warn(`Video with ID "${videoId}" not found`);
+                return;
+            }
+            
+            console.log(`Linking button to video: ${videoId}`);
+            
+            // Remove any existing event listeners by cloning
+            const newButton = button.cloneNode(true);
+            button.parentNode.replaceChild(newButton, button);
+            
+            // Set initial state (muted by default)
+            updateButtonState(newButton, video);
+            
+            // Add click event listener
+            newButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation(); // Prevent triggering video play/pause
+                console.log(`Mute button clicked for: ${videoId}`);
+                toggleMute(newButton, video);
+            });
+            
+            // Also add touch event for mobile
+            newButton.addEventListener('touchend', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log(`Mute button touched for: ${videoId}`);
+                toggleMute(newButton, video);
+            });
+        });
+    }
+    
+    /**
+     * Toggle mute/unmute state for a video
+     * @param {HTMLElement} button - The mute toggle button
+     * @param {HTMLVideoElement} video - The video element
+     */
+    function toggleMute(button, video) {
+        console.log(`Current muted state: ${video.muted}`);
+        
+        if (video.muted) {
+            // Unmute the video
+            video.muted = false;
+            video.volume = 1.0; // Ensure volume is at max
+            button.classList.add('unmuted');
+            button.querySelector('.mute-icon').textContent = '🔊';
+            button.setAttribute('aria-label', 'Mute sound');
+            
+            console.log('Video unmuted');
+            
+            // Ensure video is playing
+            if (video.paused) {
+                video.play().catch(err => {
+                    console.error('Video play failed:', err);
+                });
+            }
+        } else {
+            // Mute the video
+            video.muted = true;
+            button.classList.remove('unmuted');
+            button.querySelector('.mute-icon').textContent = '🔇';
+            button.setAttribute('aria-label', 'Unmute sound');
+            
+            console.log('Video muted');
+        }
+    }
+    
+    // ===========================
+// SHOWCASE PAGE MUTE/UNMUTE TOGGLE
+// ===========================
+
+(function() {
+    'use strict';
+    
+    /**
+     * Initialize mute toggle for showcase page videos
+     */
+    function initShowcaseMuteToggle() {
+        const showcasePage = document.getElementById('moreProjectsPage');
+        
+        if (!showcasePage) {
+            console.log('Showcase page not found');
+            return;
+        }
+        
+        // Get all mute buttons in the showcase page
+        const muteButtons = showcasePage.querySelectorAll('.showcase-mute');
+        
+        if (muteButtons.length === 0) {
+            console.warn('No showcase mute buttons found');
+            return;
+        }
+        
+        console.log(`Found ${muteButtons.length} showcase mute buttons`);
+        
+        muteButtons.forEach(button => {
+            const videoId = button.getAttribute('data-video-target');
+            const video = showcasePage.querySelector(`video[data-video-id="${videoId}"]`);
+            
+            if (!video) {
+                console.warn(`Showcase video with ID "${videoId}" not found`);
+                return;
+            }
+            
+            console.log(`Linking showcase button to video: ${videoId}`);
+            
+            // Set initial state (muted)
+            updateShowcaseButtonState(button, video);
+            
+            // Remove existing listeners and add new one
+            const newButton = button.cloneNode(true);
+            button.parentNode.replaceChild(newButton, button);
+            
+            // Click event
+            newButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log(`Showcase mute button clicked: ${videoId}`);
+                toggleShowcaseMute(newButton, video);
+            });
+            
+            // Touch event for mobile
+            newButton.addEventListener('touchend', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                toggleShowcaseMute(newButton, video);
+            });
+        });
+    }
+    
+    /**
+     * Toggle mute state for showcase video
+     */
+    function toggleShowcaseMute(button, video) {
+        console.log(`Toggling showcase video - Current muted: ${video.muted}`);
+        
+        if (video.muted) {
+            // Unmute
+            video.muted = false;
+            video.volume = 1.0;
+            button.classList.add('unmuted');
+            button.querySelector('.mute-icon').textContent = '🔊';
+            button.setAttribute('aria-label', 'Mute sound');
+            
+            console.log('Showcase video unmuted');
+            
+            // Ensure playing
+            if (video.paused) {
+                video.play().catch(err => {
+                    console.error('Showcase video play failed:', err);
+                });
+            }
+        } else {
+            // Mute
+            video.muted = true;
+            button.classList.remove('unmuted');
+            button.querySelector('.mute-icon').textContent = '🔇';
+            button.setAttribute('aria-label', 'Unmute sound');
+            
+            console.log('Showcase video muted');
+        }
+    }
+    
+    /**
+     * Update button state based on video mute status
+     */
+    function updateShowcaseButtonState(button, video) {
+        const icon = button.querySelector('.mute-icon');
+        
+        if (!icon) {
+            console.warn('Mute icon not found in showcase button');
+            return;
+        }
+        
+        if (video.muted) {
+            button.classList.remove('unmuted');
+            icon.textContent = '🔇';
+            button.setAttribute('aria-label', 'Unmute sound');
+        } else {
+            button.classList.add('unmuted');
+            icon.textContent = '🔊';
+            button.setAttribute('aria-label', 'Mute sound');
+        }
+    }
+    
+    /**
+     * Mute all showcase videos when page closes
+     */
+    function muteAllShowcaseVideos() {
+        const showcasePage = document.getElementById('moreProjectsPage');
+        if (!showcasePage) return;
+        
+        const videos = showcasePage.querySelectorAll('video');
+        videos.forEach(video => {
+            if (!video.muted) {
+                video.muted = true;
+                
+                // Update button
+                const videoId = video.getAttribute('data-video-id');
+                const button = showcasePage.querySelector(`.showcase-mute[data-video-target="${videoId}"]`);
+                if (button) {
+                    updateShowcaseButtonState(button, video);
+                }
+            }
+        });
+    }
+    
+    /**
+     * Watch for showcase page open/close
+     */
+    function watchShowcasePage() {
+        const showcasePage = document.getElementById('moreProjectsPage');
+        if (!showcasePage) return;
+        
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                if (mutation.attributeName === 'class') {
+                    const isActive = showcasePage.classList.contains('active');
+                    
+                    if (isActive) {
+                        // Page opened - reinitialize buttons
+                        console.log('Showcase page opened - initializing mute buttons');
+                        setTimeout(() => {
+                            initShowcaseMuteToggle();
+                        }, 500);
+                    } else {
+                        // Page closed - mute all videos
+                        console.log('Showcase page closed - muting all videos');
+                        muteAllShowcaseVideos();
+                    }
+                }
+            });
+        });
+        
+        observer.observe(showcasePage, { attributes: true });
+    }
+    
+    /**
+     * Handle shortform slider navigation - mute non-visible videos
+     */
+    function handleShortformSliderMute() {
+        const originalGoToShortformSlide = window.goToShortformSlide;
+        
+        if (typeof originalGoToShortformSlide === 'function') {
+            window.goToShortformSlide = function(slideIndex) {
+                // Call original function
+                originalGoToShortformSlide(slideIndex);
+                
+                // Mute all shortform videos after slide change
+                setTimeout(() => {
+                    const showcasePage = document.getElementById('moreProjectsPage');
+                    if (!showcasePage) return;
+                    
+                    const shortformVideos = showcasePage.querySelectorAll('[data-video-id*="short"][data-video-id*="mobile"]');
+                    shortformVideos.forEach(video => {
+                        if (!video.muted) {
+                            video.muted = true;
+                            
+                            const videoId = video.getAttribute('data-video-id');
+                            const button = showcasePage.querySelector(`.showcase-mute[data-video-target="${videoId}"]`);
+                            if (button) {
+                                updateShowcaseButtonState(button, video);
+                            }
+                        }
+                    });
+                }, 100);
+            };
+        }
+    }
+    
+    /**
+     * Initialize everything
+     */
+    function init() {
+        console.log('Initializing showcase page mute toggle...');
+        
+        setTimeout(() => {
+            initShowcaseMuteToggle();
+            watchShowcasePage();
+            handleShortformSliderMute();
+            console.log('✓ Showcase page mute toggle initialized');
+        }, 500);
+    }
+    
+    // Run on DOM ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+    
+    // Re-initialize after page load
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            console.log('Re-initializing showcase mute after page load...');
+            initShowcaseMuteToggle();
+            watchShowcasePage();
+        }, 1000);
+    });
+    
+    // Also reinitialize when "Show More" button is clicked
+    const showMoreBtn = document.getElementById('showMoreBtn');
+    if (showMoreBtn) {
+        showMoreBtn.addEventListener('click', () => {
+            setTimeout(() => {
+                console.log('Show More clicked - initializing showcase mute buttons');
+                initShowcaseMuteToggle();
+            }, 600);
+        });
+    }
+    
+})();        
+
+    /**
+     * Update button appearance based on video mute state
+     * @param {HTMLElement} button - The mute toggle button
+     * @param {HTMLVideoElement} video - The video element
+     */
+    function updateButtonState(button, video) {
+        const icon = button.querySelector('.mute-icon');
+        
+        if (!icon) {
+            console.warn('Mute icon not found in button');
+            return;
+        }
+        
+        if (video.muted) {
+            button.classList.remove('unmuted');
+            icon.textContent = '🔇';
+            button.setAttribute('aria-label', 'Unmute sound');
+        } else {
+            button.classList.add('unmuted');
+            icon.textContent = '🔊';
+            button.setAttribute('aria-label', 'Mute sound');
+        }
+    }
+    
+    /**
+     * Initialize on DOM ready
+     */
+    function init() {
+        console.log('Initializing mute toggle...');
+        
+        // Wait a bit for videos to be ready
+        setTimeout(() => {
+            initMuteToggle();
+            console.log('✓ Video mute toggle initialized');
+        }, 500);
+    }
+    
+    // Run initialization
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+    
+    // Also try again after full page load
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            console.log('Re-initializing after page load...');
+            initMuteToggle();
+        }, 1000);
+    });
+    
+})();
+
         // Update slider position and dots
         function updateShortformSlider() {
             const translateX = currentShortformSlide * -100;
@@ -188,7 +907,7 @@
                 }
             });
         }
-
+        
         // Go to specific slide
         function goToShortformSlide(slideIndex) {
             currentShortformSlide = slideIndex;
@@ -705,3 +1424,38 @@
         window.addEventListener('resize', adjustFontSizes);
         adjustFontSizes();
  
+        // ===========================
+// SCROLL TO TOP BUTTON
+// ===========================
+
+(function() {
+    'use strict';
+    
+    const scrollToTopBtn = document.getElementById('scrollToTop');
+    
+    if (!scrollToTopBtn) return;
+    
+    // Show/hide button based on scroll position
+    function toggleScrollButton() {
+        if (window.pageYOffset > 300) {
+            scrollToTopBtn.classList.add('visible');
+        } else {
+            scrollToTopBtn.classList.remove('visible');
+        }
+    }
+    
+    // Smooth scroll to top
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+    
+    // Event listeners
+    window.addEventListener('scroll', toggleScrollButton);
+    scrollToTopBtn.addEventListener('click', scrollToTop);
+    
+    // Initial check
+    toggleScrollButton();
+})();

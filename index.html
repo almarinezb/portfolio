@@ -31,7 +31,7 @@
                 <li><a href="#testimonials" onclick="closeMenu()">FAQ</a></li>
             </ul>
             
-            <a href="#contact" class="cta-button hidden sm:block">🎬 Let's Create</a>
+            <a href="https://almarinezb.github.io/bma.visuals-socials" target="_blank" rel="noopener noreferrer" class="cta-button hidden sm:block">🎬 Let's Create</a>
         </div>
     </nav>
 
@@ -50,7 +50,7 @@
                 </p>
                 <div class="hero-buttons order-3">
                     <a href="#projects" class="btn-primary">See My Projects</a>
-                    <a href="#contact" class="btn-secondary">Start Project</a>
+                    <a href="https://almarinezb.github.io/bma.visuals-socials" target="_blank" rel="noopener noreferrer" class="btn-secondary">Start Project</a>
                 </div>
             </div>
             
@@ -69,334 +69,486 @@
     </section>
 
     <!-- ===========================
-         PORTFOLIO SHOWCASE PAGE
-    =========================== -->
-    <div id="moreProjectsPage" class="more-projects-page bg-gradient-to-br from-[#0a0a0a] via-[#0d1a0d] to-[#0a0a0a]">
-        <a href="#" id="backButton" class="back-button">← Back to Portfolio</a>
-        
-        <div class="more-projects-container">
-            <div class="more-projects-header">
-                <h2 class="more-projects-title">Portfolio Showcase</h2>
-                <p class="more-projects-subtitle">
-                    Explore my video editing work across different categories and styles
-                </p>
-            </div>
-
-            <!-- SHORT-FORM VIDEOS SECTION -->
-            <section class="showcase-section mb-16">
-                <h3 class="showcase-title">Short-Form Videos</h3>
-                
-                <!-- Desktop: Grid Layout -->
-                <div class="hidden lg:grid lg:grid-cols-3 gap-6">
-                    <div class="video-showcase-card">
-                        <div class="video-container aspect-[9/16]">
-                            <video class="showcase-video" muted loop playsinline preload="metadata" data-autoplay="true">
-                                <source src="https://res.cloudinary.com/dvnzvmbhh/video/upload/v1759344494/short-form-1_loh798.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                    </div>
-                    
-                    <div class="video-showcase-card">
-                        <div class="video-container aspect-[9/16]">
-                            <video class="showcase-video" muted loop autoplay playsinline>
-                                <source src="https://res.cloudinary.com/dvnzvmbhh/video/upload/v1759344496/short-form-2_amqxcb.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                    </div>
-
-                    <div class="video-showcase-card">
-                        <div class="video-container aspect-[9/16]">
-                            <video class="showcase-video" muted loop autoplay playsinline>
-                                <source src="https://res.cloudinary.com/dvnzvmbhh/video/upload/v1759344490/short-form-3_diccpt.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Mobile/Tablet: Slider -->
-                <div class="lg:hidden">
-                    <div class="shortform-slider-container relative overflow-hidden">
-                        <div class="shortform-slider flex transition-transform duration-300 ease-in-out" id="shortformSlider">
-                            <!-- SLIDE 1 -->
-                            <div class="shortform-slide flex-shrink-0 w-full flex justify-center px-4">
-                                <div class="video-showcase-card max-w-xs w-full">
-                                    <div class="video-container aspect-[9/16]">
-                                        <video class="showcase-video" muted loop autoplay playsinline>
-                                            <source src="https://res.cloudinary.com/dvnzvmbhh/video/upload/v1759344494/short-form-1_loh798.mp4" type="video/mp4">
-                                            Your browser does not support the video tag.
-                                        </video>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- SLIDE 2 -->
-                            <div class="shortform-slide flex-shrink-0 w-full flex justify-center px-4">
-                                <div class="video-showcase-card max-w-xs w-full">
-                                    <div class="video-container aspect-[9/16]">
-                                        <video class="showcase-video" muted loop autoplay playsinline>
-                                            <source src="https://res.cloudinary.com/dvnzvmbhh/video/upload/v1759344496/short-form-2_amqxcb.mp4" type="video/mp4">
-                                            Your browser does not support the video tag.
-                                        </video>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- SLIDE 3 -->
-                            <div class="shortform-slide flex-shrink-0 w-full flex justify-center px-4">
-                                <div class="video-showcase-card max-w-xs w-full">
-                                    <div class="video-container aspect-[9/16]">
-                                        <video class="showcase-video" muted loop autoplay playsinline>
-                                            <source src="https://res.cloudinary.com/dvnzvmbhh/video/upload/v1759344490/short-form-3_diccpt.mp4" type="video/mp4">
-                                            Your browser does not support the video tag.
-                                        </video>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Slider Navigation Dots -->
-                        <div class="flex justify-center mt-6 space-x-2">
-                            <button class="shortform-dot w-3 h-3 rounded-full bg-gray-600 transition-colors duration-200" onclick="goToShortformSlide(0)"></button>
-                            <button class="shortform-dot w-3 h-3 rounded-full bg-gray-600 transition-colors duration-200" onclick="goToShortformSlide(1)"></button>
-                            <button class="shortform-dot w-3 h-3 rounded-full bg-gray-600 transition-colors duration-200" onclick="goToShortformSlide(2)"></button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- LONG-FORM VIDEOS SECTION -->
-            <section class="showcase-section mb-16">
-                <h3 class="showcase-title">Long-Form Videos</h3>
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                    <div class="video-showcase-card">
-                        <div class="video-container aspect-video">
-                            <video class="showcase-video" muted loop autoplay playsinline>
-                                <source src="https://res.cloudinary.com/dvnzvmbhh/video/upload/v1759344494/long-form-1_dtmzmv.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                    </div>
-                    
-                    <div class="video-showcase-card">
-                        <div class="video-container aspect-video">
-                            <video class="showcase-video" muted loop autoplay playsinline>
-                                <source src="https://res.cloudinary.com/dvnzvmbhh/video/upload/v1759344497/long-form-2_gabb1s.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ANIMATIONS SECTION -->
-            <section class="showcase-section mb-16">
-                <h3 class="showcase-title">Animations</h3>
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                    <div class="video-showcase-card">
-                        <div class="video-container aspect-video">
-                            <video class="showcase-video" muted loop autoplay playsinline>
-                                <source src="https://res.cloudinary.com/dvnzvmbhh/video/upload/v1759344487/animation-1_bgxl4x.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                    </div>
-                    
-                    <div class="video-showcase-card">
-                        <div class="video-container aspect-video">
-                            <video class="showcase-video" muted loop autoplay playsinline>
-                                <source src="https://res.cloudinary.com/dvnzvmbhh/video/upload/v1759344495/animation-2_ho4nbt.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- COLOR GRADING SECTION -->
-            <section class="showcase-section mb-16">
-                <h3 class="showcase-title">Color Grading</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="before-after-card">
-                        <div class="before-after-container" id="beforeAfter1">
-                            <div class="before-after-wrapper">
-                                <img src="images/before.png">
-                                <img src="images/after.png" alt="After" class="after-image">
-                                <div class="slider-handle" id="slider1">
-                                    <div class="slider-line"></div>
-                                    <div class="slider-button">⟷</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="before-after-card">
-                        <div class="before-after-container" id="beforeAfter2">
-                            <div class="before-after-wrapper">
-                                <img src="images/before1.jpg">
-                                <img src="images/after1.png" alt="After" class="after-image">
-                                <div class="slider-handle" id="slider2">
-                                    <div class="slider-line"></div>
-                                    <div class="slider-button">⟷</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </div>
-
-    <!-- ===========================
-         PROJECTS SECTION (Phone Mockups with Videos)
-    =========================== -->
-    <section class="videos" id="projects">
-        <div class="section-header">
-            <div class="section-subtitle-container">
-                <div class="section-subtitle">🔥 My Work</div>
-            </div>
-            <h2 class="section-title">Latest Projects</h2>
-            <p class="section-description">
-                From viral short-form content to professional long-form videos, 
-                here's how I help creators stand out and connect with their audience.
+     PORTFOLIO SHOWCASE PAGE
+=========================== -->
+<div id="moreProjectsPage" class="more-projects-page bg-gradient-to-br from-[#0a0a0a] via-[#0d1a0d] to-[#0a0a0a]">
+    <a href="#" id="backButton" class="back-button">← Back to Portfolio</a>
+    
+    <div class="more-projects-container">
+        <div class="more-projects-header">
+            <h2 class="more-projects-title">Portfolio Showcase</h2>
+            <p class="more-projects-subtitle">
+                Explore my video editing work across different categories and styles
             </p>
         </div>
 
-        <!-- Desktop: Grid Layout | Mobile/Tablet: Slider -->
-        <div class="lg:grid lg:grid-cols-3 lg:gap-8 lg:justify-items-center hidden lg:flex">
-            <!-- SHOWREEL VIDEO MOCKUP -->
-            <div class="phone-mockup">
-                <div class="phone-notch"></div>
-                <div class="phone-button"></div>
-                <div class="phone-screen">
-                    <div class="video-content">
-                        <!-- Video Element for Showreel -->
-                        <video class="video-element" muted loop playsinline preload="metadata" data-autoplay="true">
-                            <source src="https://res.cloudinary.com/dvnzvmbhh/video/upload/v1759344499/showreel_icot7h.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                        <div class="video-info">
-                            <div class="video-category">Showreel</div>
+        <!-- SHORT-FORM VIDEOS SECTION -->
+<section class="showcase-section mb-16">
+    <h3 class="showcase-title">Short-Form Videos</h3>
+    
+    <!-- Desktop & Mobile: Carousel Slider -->
+    <div class="shortform-carousel-wrapper">
+        <!-- Previous Button -->
+        <button class="carousel-nav-btn carousel-prev" id="shortformPrev" aria-label="Previous videos">
+            <span>‹</span>
+        </button>
+        
+        <!-- Carousel Container -->
+        <div class="shortform-carousel-container">
+            <div class="shortform-carousel-track" id="shortformCarouselTrack">
+                <!-- VIDEO 1 -->
+                <div class="shortform-carousel-slide">
+                    <div class="video-showcase-card">
+                        <div class="video-container aspect-[9/16]">
+                            <video class="showcase-video" muted loop playsinline preload="metadata" data-autoplay="true" data-video-id="showcase-short-1">
+                                <source src="https://res.cloudinary.com/dvnzvmbhh/video/upload/v1760446463/shortform-6_lamebs.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            
+                            <!-- Mute/Unmute Button -->
+                            <button class="mute-toggle showcase-mute" data-video-target="showcase-short-1" aria-label="Toggle sound">
+                                <span class="mute-icon">🔇</span>
+                            </button>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- SHORT-FORM VIDEO MOCKUP -->
-            <div class="phone-mockup">
-                <div class="phone-notch"></div>
-                <div class="phone-button"></div>
-                <div class="phone-screen">
-                    <div class="video-content">
-                        <!-- Video Element for Short-Form -->
-                        <video class="video-element" muted loop playsinline preload="metadata" data-autoplay="true">
-                            <source src="https://res.cloudinary.com/dvnzvmbhh/video/upload/v1759344499/short-form_t47mpa.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                        <div class="video-info">
-                            <div class="video-category">Short-Form</div>
+                
+                <!-- VIDEO 2 -->
+                <div class="shortform-carousel-slide">
+                    <div class="video-showcase-card">
+                        <div class="video-container aspect-[9/16]">
+                            <video class="showcase-video" muted loop playsinline preload="metadata" data-autoplay="true" data-video-id="showcase-short-2">
+                                <source src="https://res.cloudinary.com/dvnzvmbhh/video/upload/v1760445173/shortform-5_pcepiy.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            
+                            <!-- Mute/Unmute Button -->
+                            <button class="mute-toggle showcase-mute" data-video-target="showcase-short-2" aria-label="Toggle sound">
+                                <span class="mute-icon">🔇</span>
+                            </button>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- ANIMATIONS VIDEO MOCKUP -->
-            <div class="phone-mockup">
-                <div class="phone-notch"></div>
-                <div class="phone-button"></div>
-                <div class="phone-screen">
-                    <div class="video-content">
-                        <!-- Video Element for Animations -->
-                        <video class="video-element" muted loop playsinline preload="metadata" data-autoplay="true">
-                            <source src="https://res.cloudinary.com/dvnzvmbhh/video/upload/v1759344494/animations_ciyqqe.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                        <div class="video-info">
-                            <div class="video-category">Animations</div>
+                <!-- VIDEO 3 -->
+                <div class="shortform-carousel-slide">
+                    <div class="video-showcase-card">
+                        <div class="video-container aspect-[9/16]">
+                            <video class="showcase-video" muted loop playsinline preload="metadata" data-autoplay="true" data-video-id="showcase-short-3">
+                                <source src="https://res.cloudinary.com/dvnzvmbhh/video/upload/v1759344490/short-form-3_diccpt.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            
+                            <!-- Mute/Unmute Button -->
+                            <button class="mute-toggle showcase-mute" data-video-target="showcase-short-3" aria-label="Toggle sound">
+                                <span class="mute-icon">🔇</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VIDEO 4 -->
+                <div class="shortform-carousel-slide">
+                    <div class="video-showcase-card">
+                        <div class="video-container aspect-[9/16]">
+                            <video class="showcase-video" muted loop playsinline preload="metadata" data-autoplay="true" data-video-id="showcase-short-4">
+                                <source src="https://res.cloudinary.com/dvnzvmbhh/video/upload/v1759344494/short-form-1_loh798.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            
+                            <!-- Mute/Unmute Button -->
+                            <button class="mute-toggle showcase-mute" data-video-target="showcase-short-4" aria-label="Toggle sound">
+                                <span class="mute-icon">🔇</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VIDEO 5 -->
+                <div class="shortform-carousel-slide">
+                    <div class="video-showcase-card">
+                        <div class="video-container aspect-[9/16]">
+                            <video class="showcase-video" muted loop playsinline preload="metadata" data-autoplay="true" data-video-id="showcase-short-5">
+                                <source src="https://res.cloudinary.com/dvnzvmbhh/video/upload/v1759344496/short-form-2_amqxcb.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            
+                            <!-- Mute/Unmute Button -->
+                            <button class="mute-toggle showcase-mute" data-video-target="showcase-short-5" aria-label="Toggle sound">
+                                <span class="mute-icon">🔇</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VIDEO 6 -->
+                <div class="shortform-carousel-slide">
+                    <div class="video-showcase-card">
+                        <div class="video-container aspect-[9/16]">
+                            <video class="showcase-video" muted loop playsinline preload="metadata" data-autoplay="true" data-video-id="showcase-short-6">
+                                <source src="https://res.cloudinary.com/dvnzvmbhh/video/upload/v1759344490/short-form-3_diccpt.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            
+                            <!-- Mute/Unmute Button -->
+                            <button class="mute-toggle showcase-mute" data-video-target="showcase-short-6" aria-label="Toggle sound">
+                                <span class="mute-icon">🔇</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VIDEO 7 (NEW) -->
+                <div class="shortform-carousel-slide">
+                    <div class="video-showcase-card">
+                        <div class="video-container aspect-[9/16]">
+                            <video class="showcase-video" muted loop playsinline preload="metadata" data-autoplay="true" data-video-id="showcase-short-7">
+                                <source src="https://res.cloudinary.com/dvnzvmbhh/video/upload/v1760523768/s8_w8iy5w.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            
+                            <!-- Mute/Unmute Button -->
+                            <button class="mute-toggle showcase-mute" data-video-target="showcase-short-7" aria-label="Toggle sound">
+                                <span class="mute-icon">🔇</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VIDEO 8 (NEW) -->
+                <div class="shortform-carousel-slide">
+                    <div class="video-showcase-card">
+                        <div class="video-container aspect-[9/16]">
+                            <video class="showcase-video" muted loop playsinline preload="metadata" data-autoplay="true" data-video-id="showcase-short-8">
+                                <source src="https://res.cloudinary.com/dvnzvmbhh/video/upload/v1760523804/s9_hqrvpp.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            
+                            <!-- Mute/Unmute Button -->
+                            <button class="mute-toggle showcase-mute" data-video-target="showcase-short-8" aria-label="Toggle sound">
+                                <span class="mute-icon">🔇</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VIDEO 9 (NEW) -->
+                <div class="shortform-carousel-slide">
+                    <div class="video-showcase-card">
+                        <div class="video-container aspect-[9/16]">
+                            <video class="showcase-video" muted loop playsinline preload="metadata" data-autoplay="true" data-video-id="showcase-short-9">
+                                <source src="https://res.cloudinary.com/dvnzvmbhh/video/upload/v1760523920/s7_xlhvpc.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            
+                            <!-- Mute/Unmute Button -->
+                            <button class="mute-toggle showcase-mute" data-video-target="showcase-short-9" aria-label="Toggle sound">
+                                <span class="mute-icon">🔇</span>
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        
+        <!-- Next Button -->
+        <button class="carousel-nav-btn carousel-next" id="shortformNext" aria-label="Next videos">
+            <span>›</span>
+        </button>
+    </div>
+    
+    <!-- Carousel Dots Indicator -->
+    <div class="carousel-dots" id="shortformDots">
+        <!-- Dots will be generated dynamically by JavaScript -->
+    </div>
+</section>
 
-        <!-- Mobile/Tablet Slider -->
-        <div class="lg:hidden">
-            <div class="phone-slider-container relative overflow-hidden">
-                <div class="phone-slider flex transition-transform duration-300 ease-in-out" id="phoneSlider">
-                    <!-- SHOWREEL VIDEO MOCKUP -->
-                    <div class="phone-slide flex-shrink-0 w-full flex justify-center">
-                        <div class="phone-mockup">
-                            <div class="phone-notch"></div>
-                            <div class="phone-button"></div>
-                            <div class="phone-screen">
-                                <div class="video-content">
-                                    <video class="video-element" muted loop autoplay playsinline>
-                                        <source src="https://res.cloudinary.com/dvnzvmbhh/video/upload/v1759344499/showreel_icot7h.mp4" type="video/mp4">
-                                        Your browser does not support the video tag.
-                                    </video>
-                                    <div class="video-info">
-                                        <div class="video-category">Showreel</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+        <!-- LONG-FORM VIDEOS SECTION -->
+        <section class="showcase-section mb-16">
+            <h3 class="showcase-title">Long-Form Videos</h3>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="video-showcase-card">
+                    <div class="video-container aspect-video">
+                        <video class="showcase-video" muted loop autoplay playsinline data-video-id="showcase-long-1">
+                            <source src="https://res.cloudinary.com/dvnzvmbhh/video/upload/v1759344494/long-form-1_dtmzmv.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        
+                        <!-- Mute/Unmute Button -->
+                        <button class="mute-toggle showcase-mute" data-video-target="showcase-long-1" aria-label="Toggle sound">
+                            <span class="mute-icon">🔇</span>
+                        </button>
                     </div>
-
-                    <!-- SHORT-FORM VIDEO MOCKUP -->
-                    <div class="phone-slide flex-shrink-0 w-full flex justify-center">
-                        <div class="phone-mockup">
-                            <div class="phone-notch"></div>
-                            <div class="phone-button"></div>
-                            <div class="phone-screen">
-                                <div class="video-content">
-                                    <video class="video-element" muted loop autoplay playsinline>
-                                        <source src="https://res.cloudinary.com/dvnzvmbhh/video/upload/v1759344499/short-form_t47mpa.mp4" type="video/mp4">
-                                        Your browser does not support the video tag.
-                                    </video>
-                                    <div class="video-info">
-                                        <div class="video-category">Short-Form</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                </div>
+                
+                <div class="video-showcase-card">
+                    <div class="video-container aspect-video">
+                        <video class="showcase-video" muted loop autoplay playsinline data-video-id="showcase-long-2">
+                            <source src="https://res.cloudinary.com/dvnzvmbhh/video/upload/v1759344497/long-form-2_gabb1s.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        
+                        <!-- Mute/Unmute Button -->
+                        <button class="mute-toggle showcase-mute" data-video-target="showcase-long-2" aria-label="Toggle sound">
+                            <span class="mute-icon">🔇</span>
+                        </button>
                     </div>
+                </div>
+            </div>
+        </section>
 
-                    <!-- ANIMATIONS VIDEO MOCKUP -->
-                    <div class="phone-slide flex-shrink-0 w-full flex justify-center">
-                        <div class="phone-mockup">
-                            <div class="phone-notch"></div>
-                            <div class="phone-button"></div>
-                            <div class="phone-screen">
-                                <div class="video-content">
-                                    <video class="video-element" muted loop autoplay playsinline>
-                                        <source src="https://res.cloudinary.com/dvnzvmbhh/video/upload/v1759344494/animations_ciyqqe.mp4" type="video/mp4">
-                                        Your browser does not support the video tag.
-                                    </video>
-                                    <div class="video-info">
-                                        <div class="video-category">Animations</div>
-                                    </div>
-                                </div>
+        <!-- ANIMATIONS SECTION -->
+        <section class="showcase-section mb-16">
+            <h3 class="showcase-title">Animations</h3>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="video-showcase-card">
+                    <div class="video-container aspect-video">
+                        <video class="showcase-video" muted loop autoplay playsinline data-video-id="showcase-animation-1">
+                            <source src="https://res.cloudinary.com/dvnzvmbhh/video/upload/v1759344487/animation-1_bgxl4x.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        
+                        <!-- Mute/Unmute Button -->
+                        <button class="mute-toggle showcase-mute" data-video-target="showcase-animation-1" aria-label="Toggle sound">
+                            <span class="mute-icon">🔇</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="video-showcase-card">
+                    <div class="video-container aspect-video">
+                        <video class="showcase-video" muted loop autoplay playsinline data-video-id="showcase-animation-2">
+                            <source src="https://res.cloudinary.com/dvnzvmbhh/video/upload/v1759344495/animation-2_ho4nbt.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        
+                        <!-- Mute/Unmute Button -->
+                        <button class="mute-toggle showcase-mute" data-video-target="showcase-animation-2" aria-label="Toggle sound">
+                            <span class="mute-icon">🔇</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- COLOR GRADING SECTION -->
+        <section class="showcase-section mb-16">
+            <h3 class="showcase-title">Color Grading</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="before-after-card">
+                    <div class="before-after-container" id="beforeAfter1">
+                        <div class="before-after-wrapper">
+                            <img src="images/before.png">
+                            <img src="images/after.png" alt="After" class="after-image">
+                            <div class="slider-handle" id="slider1">
+                                <div class="slider-line"></div>
+                                <div class="slider-button">⟷</div>
                             </div>
                         </div>
                     </div>
                 </div>
+                
+                <div class="before-after-card">
+                    <div class="before-after-container" id="beforeAfter2">
+                        <div class="before-after-wrapper">
+                            <img src="images/before1.jpg">
+                            <img src="images/after1.png" alt="After" class="after-image">
+                            <div class="slider-handle" id="slider2">
+                                <div class="slider-line"></div>
+                                <div class="slider-button">⟷</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
 
-                <!-- Slider Navigation Dots -->
-                <div class="flex justify-center mt-6 space-x-2">
-                    <button class="slider-dot w-3 h-3 rounded-full bg-gray-600 transition-colors duration-200" onclick="goToSlide(0)"></button>
-                    <button class="slider-dot w-3 h-3 rounded-full bg-gray-600 transition-colors duration-200" onclick="goToSlide(1)"></button>
-                    <button class="slider-dot w-3 h-3 rounded-full bg-gray-600 transition-colors duration-200" onclick="goToSlide(2)"></button>
+    <!-- ===========================
+     PROJECTS SECTION (Phone Mockups with Videos)
+=========================== -->
+<section class="videos" id="projects">
+    <div class="section-header">
+        <div class="section-subtitle-container">
+            <div class="section-subtitle">🔥 My Work</div>
+        </div>
+        <h2 class="section-title">Latest Projects</h2>
+        <p class="section-description">
+            From viral short-form content to professional long-form videos, 
+            here's how I help creators stand out and connect with their audience.
+        </p>
+    </div>
+
+    <!-- Desktop: Grid Layout | Mobile/Tablet: Slider -->
+    <div class="lg:grid lg:grid-cols-3 lg:gap-8 lg:justify-items-center hidden lg:flex">
+        <!-- SHOWREEL VIDEO MOCKUP -->
+        <div class="phone-mockup">
+            <div class="phone-notch"></div>
+            <div class="phone-button"></div>
+            <div class="phone-screen">
+                <div class="video-content">
+                    <!-- Video Element for Showreel -->
+                    <video class="video-element" muted loop playsinline preload="metadata" data-autoplay="true" data-video-id="showreel">
+                        <source src="https://res.cloudinary.com/dvnzvmbhh/video/upload/v1759344499/showreel_icot7h.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    
+                    <!-- Mute/Unmute Button -->
+                    <button class="mute-toggle" data-video-target="showreel" aria-label="Toggle sound">
+                        <span class="mute-icon">🔇</span>
+                    </button>
+                    
+                    <div class="video-info">
+                        <div class="video-category">Showreel</div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- SHOW MORE BUTTON -->
-        <div class="show-more-section">
-            <button id="showMoreBtn" class="show-more-btn">Show More</button>
+        <!-- SHORT-FORM VIDEO MOCKUP -->
+        <div class="phone-mockup">
+            <div class="phone-notch"></div>
+            <div class="phone-button"></div>
+            <div class="phone-screen">
+                <div class="video-content">
+                    <!-- Video Element for Short-Form -->
+                    <video class="video-element" muted loop playsinline preload="metadata" data-autoplay="true" data-video-id="shortform">
+                        <source src="https://res.cloudinary.com/dvnzvmbhh/video/upload/v1759344499/short-form_t47mpa.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    
+                    <!-- Mute/Unmute Button -->
+                    <button class="mute-toggle" data-video-target="shortform" aria-label="Toggle sound">
+                        <span class="mute-icon">🔇</span>
+                    </button>
+                    
+                    <div class="video-info">
+                        <div class="video-category">Short-Form</div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </section>
+
+        <!-- ANIMATIONS VIDEO MOCKUP -->
+        <div class="phone-mockup">
+            <div class="phone-notch"></div>
+            <div class="phone-button"></div>
+            <div class="phone-screen">
+                <div class="video-content">
+                    <!-- Video Element for Animations -->
+                    <video class="video-element" muted loop playsinline preload="metadata" data-autoplay="true" data-video-id="animations">
+                        <source src="https://res.cloudinary.com/dvnzvmbhh/video/upload/v1759344494/animations_ciyqqe.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    
+                    <!-- Mute/Unmute Button -->
+                    <button class="mute-toggle" data-video-target="animations" aria-label="Toggle sound">
+                        <span class="mute-icon">🔇</span>
+                    </button>
+                    
+                    <div class="video-info">
+                        <div class="video-category">Animations</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile/Tablet Slider -->
+    <div class="lg:hidden">
+        <div class="phone-slider-container relative overflow-hidden">
+            <div class="phone-slider flex transition-transform duration-300 ease-in-out" id="phoneSlider">
+                <!-- SHOWREEL VIDEO MOCKUP -->
+                <div class="phone-slide flex-shrink-0 w-full flex justify-center">
+                    <div class="phone-mockup">
+                        <div class="phone-notch"></div>
+                        <div class="phone-button"></div>
+                        <div class="phone-screen">
+                            <div class="video-content">
+                                <video class="video-element" muted loop autoplay playsinline data-video-id="showreel-mobile">
+                                    <source src="https://res.cloudinary.com/dvnzvmbhh/video/upload/v1759344499/showreel_icot7h.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                
+                                <!-- Mute/Unmute Button -->
+                                <button class="mute-toggle" data-video-target="showreel-mobile" aria-label="Toggle sound">
+                                    <span class="mute-icon">🔇</span>
+                                </button>
+                                
+                                <div class="video-info">
+                                    <div class="video-category">Showreel</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SHORT-FORM VIDEO MOCKUP -->
+                <div class="phone-slide flex-shrink-0 w-full flex justify-center">
+                    <div class="phone-mockup">
+                        <div class="phone-notch"></div>
+                        <div class="phone-button"></div>
+                        <div class="phone-screen">
+                            <div class="video-content">
+                                <video class="video-element" muted loop autoplay playsinline data-video-id="shortform-mobile">
+                                    <source src="https://res.cloudinary.com/dvnzvmbhh/video/upload/v1759344499/short-form_t47mpa.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                
+                                <!-- Mute/Unmute Button -->
+                                <button class="mute-toggle" data-video-target="shortform-mobile" aria-label="Toggle sound">
+                                    <span class="mute-icon">🔇</span>
+                                </button>
+                                
+                                <div class="video-info">
+                                    <div class="video-category">Short-Form</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ANIMATIONS VIDEO MOCKUP -->
+                <div class="phone-slide flex-shrink-0 w-full flex justify-center">
+                    <div class="phone-mockup">
+                        <div class="phone-notch"></div>
+                        <div class="phone-button"></div>
+                        <div class="phone-screen">
+                            <div class="video-content">
+                                <video class="video-element" muted loop autoplay playsinline data-video-id="animations-mobile">
+                                    <source src="https://res.cloudinary.com/dvnzvmbhh/video/upload/v1759344494/animations_ciyqqe.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                
+                                <!-- Mute/Unmute Button -->
+                                <button class="mute-toggle" data-video-target="animations-mobile" aria-label="Toggle sound">
+                                    <span class="mute-icon">🔇</span>
+                                </button>
+                                
+                                <div class="video-info">
+                                    <div class="video-category">Animations</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slider Navigation Dots -->
+            <div class="flex justify-center mt-6 space-x-2">
+                <button class="slider-dot w-3 h-3 rounded-full bg-gray-600 transition-colors duration-200" onclick="goToSlide(0)"></button>
+                <button class="slider-dot w-3 h-3 rounded-full bg-gray-600 transition-colors duration-200" onclick="goToSlide(1)"></button>
+                <button class="slider-dot w-3 h-3 rounded-full bg-gray-600 transition-colors duration-200" onclick="goToSlide(2)"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SHOW MORE BUTTON -->
+    <div class="show-more-section">
+        <button id="showMoreBtn" class="show-more-btn">Show More</button>
+    </div>
+</section>
 
     <!-- ===========================
          PROCESS SECTION
@@ -474,7 +626,7 @@
             </div>
             <div class="process-cta flex flex-col sm:flex-row gap-4">
                 <a href="#projects" class="btn-secondary">See All Projects</a>
-                <a href="#contact" class="btn-primary">Contact Now</a>
+                <a href="https://almarinezb.github.io/bma.visuals-socials" target="_blank" rel="noopener noreferrer" class="btn-primary">Contact Now</a>
             </div>
         </div>
     </section>
@@ -519,7 +671,8 @@
                 
                 <div class="testimonial-actions">
                     <a href="#projects" class="btn-secondary">See All Projects</a>
-                    <a href="#contact" class="btn-primary">Contact Now</a>
+                    <a href="https://almarinezb.github.io/bma.visuals-socials" target="_blank" rel="noopener noreferrer" class="btn-primary">Contact Now</a>
+
                 </div>
             </div>
 
@@ -629,7 +782,7 @@
                             <span class="faq-icon">+</span>
                         </button>
                         <div class="faq-answer">
-                            <p>Pricing depends on the project scope and long-term collaboration. Please leave me a message so we can talk it out and build a package that works best for both of us. I value building lasting partnerships with creators and businesses, and I'm happy to create custom solutions that fit your ongoing content needs and budget.</p>
+                            <p>Pricing depends on the project scope anda long-term collaboration. Please leave me a message so we can talk it out and build a package that works best for both of us. I value building lasting partnerships with creators and businesses, and I'm happy to create custom solutions that fit your ongoing content needs and budget.</p>
                         </div>
                     </div>
 
@@ -647,6 +800,116 @@
             </div>
         </div>
     </section>
+<!-- ===========================
+     FOOTER SECTION
+=========================== -->
+<footer class="footer">
+    <div class="footer-container">
+        <!-- Footer Top Section -->
+        <div class="footer-top">
+            <!-- Brand Column -->
+            <div class="footer-column footer-brand">
+                <a href="#" class="footer-logo">BMA visuals</a>
+                <p class="footer-tagline">
+                    Crafting scroll-stopping videos that boost engagement and give creators viral potential.
+                </p>
+                <div class="footer-socials">
+                    <a href="https://almarinezb.github.io/bma.visuals-socials" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Contact & Socials">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                    </a>
+                    <a href="https://almarinezb.github.io/bma.visuals-socials" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                    <a href="https://almarinezb.github.io/bma.visuals-socials" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="YouTube">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+                            <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+                        </svg>
+                    </a>
+                    <a href="https://almarinezb.github.io/bma.visuals-socials" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="TikTok">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Quick Links Column -->
+            <div class="footer-column">
+                <h4 class="footer-heading">Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#process">Process</a></li>
+                    <li><a href="#testimonials">FAQ</a></li>
+                    <li><a href="#" onclick="document.getElementById('showMoreBtn').click(); return false;">Portfolio</a></li>
+                </ul>
+            </div>
+
+            <!-- Services Column -->
+            <div class="footer-column">
+                <h4 class="footer-heading">Services</h4>
+                <ul class="footer-links">
+                    <li><a href="#projects">Short-Form Editing</a></li>
+                    <li><a href="#projects">Long-Form Videos</a></li>
+                    <li><a href="#projects">Motion Graphics</a></li>
+                    <li><a href="#projects">Color Grading</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Column -->
+            <div class="footer-column">
+                <h4 class="footer-heading">Get In Touch</h4>
+                <ul class="footer-links">
+                    <li>
+                        <a href="https://almarinezb.github.io/bma.visuals-socials" target="_blank" rel="noopener noreferrer" class="footer-cta-link">
+                            <span class="cta-icon">🎬</span>
+                            <span>Start Your Project</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://almarinezb.github.io/bma.visuals-socials" target="_blank" rel="noopener noreferrer">
+                            Contact & Socials
+                        </a>
+                    </li>
+                </ul>
+                <div class="footer-availability">
+                    <span class="availability-dot"></span>
+                    <span>Available for new projects</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Divider -->
+        <div class="footer-divider"></div>
+
+        <!-- Footer Bottom Section -->
+        <div class="footer-bottom">
+            <p class="footer-copyright">
+                © 2025 <span class="highlight-text">BMA visuals</span>. All rights reserved.
+            </p>
+            <div class="footer-credits">
+                <span>Crafted with</span>
+                <span class="heart-icon">♥</span>
+                <span>for creators</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
+</footer>
+
 
     <script src="script.js"></script>
 </body>
