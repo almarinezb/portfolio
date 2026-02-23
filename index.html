@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMA visuals Portfolio</title>
+    <link rel="icon" type="image/png" href="images/bma visuals logo.jpg">
+    <meta property="og:image" content="https://almarinezb.github.io/bma.visuals/images/bma visuals logo.jpg">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- BACKGROUND GRADIENT EFFECTS -->
+    <div class="bg-gradient"></div>
+    
+    <!-- ===========================
+         NAVIGATION BAR
+    =========================== -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">BMA visuals</a>
+            
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-button" id="mobileMenuButton">
+                <span id="menuIcon">☰</span>
+            </button>
+            
+            <!-- Navigation Links -->
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#projects" onclick="closeMenu()">Projects</a></li>
+                <li><a href="#process" onclick="closeMenu()">Process</a></li>
+                <li><a href="#testimonials" onclick="closeMenu()">FAQ</a></li>
+            </ul>
+            
+            <a href="https://almarinezb.github.io/bma.visuals-socials" target="_blank" rel="noopener noreferrer" class="cta-button hidden sm:block">🎬 Let's Create</a>
+        </div>
+    </nav>
+
+    <!-- ===========================
+         HERO SECTION
+    =========================== -->
+    <section class="hero min-h-screen flex items-center justify-center">
+        <div class="max-w-[1400px] mx-auto px-5 lg:px-12 w-full flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-15">
+            <!-- Content (Left on Desktop) -->
+            <div class="hero-content order-2 lg:order-1">
+                <h1 class="hero-title order-1">BMA visuals</h1>
+                <h2 class="hero-subtitle order-2">Crafting Stories, Frame by Frame</h2>
+                <p class="hero-description hidden lg:block">
+                    I edit scroll-stopping videos that boost engagement, increase watch time, and give creators viral potential. 
+                    From short-form content to full productions – compelling storytelling through expert editing.
+                </p>
+                <div class="hero-buttons order-3">
+                    <a href="#projects" class="btn-primary">See My Projects</a>
+                    <a href="https://almarinezb.github.io/bma.visuals-socials" target="_blank" rel="noopener noreferrer" class="btn-secondary">Start Project</a>
+                </div>
+            </div>
+            
+            <!-- Avatar (Right on Desktop) -->
+            <div class="hero-visual order-1 lg:order-2">
+                <div class="avatar-container">
+                    <img src="images/profile.jpg" alt="Avatar" class="avatar-img w-full h-full object-cover rounded-full">
+                    <div class="tech-icons">
+                        <div class="tech-icon pr">Pr</div>
+                        <div class="tech-icon ae">Ae</div>
+                        <div class="tech-icon ps">Ps</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+     PORTFOLIO SHOWCASE PAGE
+=========================== -->
+<div id="moreProjectsPage" class="more-projects-page bg-gradient-to-br from-[#0a0a0a] via-[#0d1a0d] to-[#0a0a0a]">
+    <a href="#" id="backButton" class="back-button">← Back to Portfolio</a>
+    
+    <div class="more-projects-container">
+        <div class="more-projects-header">
+            <h2 class="more-projects-title">Portfolio Showcase</h2>
+            <p class="more-projects-subtitle">
+                Explore my video editing work across different categories and styles
+            </p>
+        </div>
+
+        <!-- SHORT-FORM VIDEOS SECTION -->
+<section class="showcase-section mb-16">
+    <h3 class="showcase-title">Short-Form Videos</h3>
+    
+    <!-- Desktop & Mobile: Carousel Slider -->
+    <div class="shortform-carousel-wrapper">
+        <!-- Previous Button -->
+        <button class="carousel-nav-btn carousel-prev" id="shortformPrev" aria-label="Previous videos">
+            <span>‹</span>
+        </button>
+        
+        <!-- Carousel Container -->
+        <div class="shortform-carousel-container">
+            <div class="shortform-carousel-track" id="shortformCarouselTrack">
+                <!-- VIDEO 1 -->
+                <div class="shortform-carousel-slide">
+                    <div class="video-showcase-card">
+                        <div class="video-container aspect-[9/16]">
+                            <video class="showcase-video" muted loop playsinline preload="metadata" data-autoplay="true" data-video-id="showcase-short-1">
+                                <source src="https://cpbsdxeytmehdarbjxcb.supabase.co/storage/v1/object/public/videos/The%20Man%20Behind%20TSMC's%20Success1.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            
+                            <!-- Mute/Unmute Button -->
+                            <button class="mute-toggle showcase-mute" data-video-target="showcase-short-1" aria-label="Toggle sound">
+                                <span class="mute-icon">🔇</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- VIDEO 2 -->
+                <div class="shortform-carousel-slide">
+                    <div class="video-showcase-card">
+                        <div class="video-container aspect-[9/16]">
+                            <video class="showcase-video" muted loop playsinline preload="metadata" data-autoplay="true" data-video-id="showcase-short-2">
+                                <source src="https://cpbsdxeytmehdarbjxcb.supabase.co/storage/v1/object/public/videos/shortform-6.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            
+                            <!-- Mute/Unmute Button -->
+                            <button class="mute-toggle showcase-mute" data-video-target="showcase-short-2" aria-label="Toggle sound">
+                                <span class="mute-icon">🔇</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VIDEO 3 -->
+                <div class="shortform-carousel-slide">
+                    <div class="video-showcase-card">
+                        <div class="video-container aspect-[9/16]">
+                            <video class="showcase-video" muted loop playsinline preload="metadata" data-autoplay="true" data-video-id="showcase-short-3">
+                                <source src="https://cpbsdxeytmehdarbjxcb.supabase.co/storage/v1/object/public/videos/shortform-5.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            
+                            <!-- Mute/Unmute Button -->
+                            <button class="mute-toggle showcase-mute" data-video-target="showcase-short-3" aria-label="Toggle sound">
+                                <span class="mute-icon">🔇</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VIDEO 4 -->
+                <div class="shortform-carousel-slide">
+                    <div class="video-showcase-card">
+                        <div class="video-container aspect-[9/16]">
+                            <video class="showcase-video" muted loop playsinline preload="metadata" data-autoplay="true" data-video-id="showcase-short-4">
+                                <source src="https://cpbsdxeytmehdarbjxcb.supabase.co/storage/v1/object/public/videos/short-form-1.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            
+                            <!-- Mute/Unmute Button -->
+                            <button class="mute-toggle showcase-mute" data-video-target="showcase-short-4" aria-label="Toggle sound">
+                                <span class="mute-icon">🔇</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VIDEO 5 -->
+                <div class="shortform-carousel-slide">
+                    <div class="video-showcase-card">
+                        <div class="video-container aspect-[9/16]">
+                            <video class="showcase-video" muted loop playsinline preload="metadata" data-autoplay="true" data-video-id="showcase-short-5">
+                                <source src="https://cpbsdxeytmehdarbjxcb.supabase.co/storage/v1/object/public/videos/short-form-3.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            
+                            <!-- Mute/Unmute Button -->
+                            <button class="mute-toggle showcase-mute" data-video-target="showcase-short-5" aria-label="Toggle sound">
+                                <span class="mute-icon">🔇</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VIDEO 6 -->
+                <div class="shortform-carousel-slide">
+                    <div class="video-showcase-card">
+                        <div class="video-container aspect-[9/16]">
+                            <video class="showcase-video" muted loop playsinline preload="metadata" data-autoplay="true" data-video-id="showcase-short-6">
+                                <source src="https://cpbsdxeytmehdarbjxcb.supabase.co/storage/v1/object/public/videos/short-form-2.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            
+                            <!-- Mute/Unmute Button -->
+                            <button class="mute-toggle showcase-mute" data-video-target="showcase-short-6" aria-label="Toggle sound">
+                                <span class="mute-icon">🔇</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VIDEO 7 (NEW) -->
+                <div class="shortform-carousel-slide">
+                    <div class="video-showcase-card">
+                        <div class="video-container aspect-[9/16]">
+                            <video class="showcase-video" muted loop playsinline preload="metadata" data-autoplay="true" data-video-id="showcase-short-7">
+                                <source src="https://cpbsdxeytmehdarbjxcb.supabase.co/storage/v1/object/public/videos/s8.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            
+                            <!-- Mute/Unmute Button -->
+                            <button class="mute-toggle showcase-mute" data-video-target="showcase-short-7" aria-label="Toggle sound">
+                                <span class="mute-icon">🔇</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VIDEO 8 (NEW) -->
+                <div class="shortform-carousel-slide">
+                    <div class="video-showcase-card">
+                        <div class="video-container aspect-[9/16]">
+                            <video class="showcase-video" muted loop playsinline preload="metadata" data-autoplay="true" data-video-id="showcase-short-8">
+                                <source src="https://cpbsdxeytmehdarbjxcb.supabase.co/storage/v1/object/public/videos/yt.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            
+                            <!-- Mute/Unmute Button -->
+                            <button class="mute-toggle showcase-mute" data-video-target="showcase-short-8" aria-label="Toggle sound">
+                                <span class="mute-icon">🔇</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VIDEO 9 (NEW) -->
+                <div class="shortform-carousel-slide">
+                    <div class="video-showcase-card">
+                        <div class="video-container aspect-[9/16]">
+                            <video class="showcase-video" muted loop playsinline preload="metadata" data-autoplay="true" data-video-id="showcase-short-9">
+                                <source src="https://cpbsdxeytmehdarbjxcb.supabase.co/storage/v1/object/public/videos/wow.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            
+                            <!-- Mute/Unmute Button -->
+                            <button class="mute-toggle showcase-mute" data-video-target="showcase-short-9" aria-label="Toggle sound">
+                                <span class="mute-icon">🔇</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Next Button -->
+        <button class="carousel-nav-btn carousel-next" id="shortformNext" aria-label="Next videos">
+            <span>›</span>
+        </button>
+    </div>
+    
+    <!-- Carousel Dots Indicator -->
+    <div class="carousel-dots" id="shortformDots">
+        <!-- Dots will be generated dynamically by JavaScript -->
+    </div>
+</section>
+
+        <!-- LONG-FORM VIDEOS SECTION -->
+        <section class="showcase-section mb-16">
+            <h3 class="showcase-title">Long-Form Videos</h3>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="video-showcase-card">
+                    <div class="video-container aspect-video">
+                        <video class="showcase-video" muted loop autoplay playsinline data-video-id="showcase-long-1">
+                            <source src="https://cpbsdxeytmehdarbjxcb.supabase.co/storage/v1/object/public/videos/long-form-1.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        
+                        <!-- Mute/Unmute Button -->
+                        <button class="mute-toggle showcase-mute" data-video-target="showcase-long-1" aria-label="Toggle sound">
+                            <span class="mute-icon">🔇</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="video-showcase-card">
+                    <div class="video-container aspect-video">
+                        <video class="showcase-video" muted loop autoplay playsinline data-video-id="showcase-long-2">
+                            <source src="https://cpbsdxeytmehdarbjxcb.supabase.co/storage/v1/object/public/videos/long-form-2.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        
+                        <!-- Mute/Unmute Button -->
+                        <button class="mute-toggle showcase-mute" data-video-target="showcase-long-2" aria-label="Toggle sound">
+                            <span class="mute-icon">🔇</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ANIMATIONS SECTION -->
+        <section class="showcase-section mb-16">
+            <h3 class="showcase-title">Animations</h3>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="video-showcase-card">
+                    <div class="video-container aspect-video">
+                        <video class="showcase-video" muted loop autoplay playsinline data-video-id="showcase-animation-1">
+                            <source src="https://cpbsdxeytmehdarbjxcb.supabase.co/storage/v1/object/public/videos/animation-1.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        
+                        <!-- Mute/Unmute Button -->
+                        <button class="mute-toggle showcase-mute" data-video-target="showcase-animation-1" aria-label="Toggle sound">
+                            <span class="mute-icon">🔇</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="video-showcase-card">
+                    <div class="video-container aspect-video">
+                        <video class="showcase-video" muted loop autoplay playsinline data-video-id="showcase-animation-2">
+                            <source src="https://cpbsdxeytmehdarbjxcb.supabase.co/storage/v1/object/public/videos/animation-2.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        
+                        <!-- Mute/Unmute Button -->
+                        <button class="mute-toggle showcase-mute" data-video-target="showcase-animation-2" aria-label="Toggle sound">
+                            <span class="mute-icon">🔇</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- COLOR GRADING SECTION -->
+        <section class="showcase-section mb-16">
+            <h3 class="showcase-title">Color Grading</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="before-after-card">
+                    <div class="before-after-container" id="beforeAfter1">
+                        <div class="before-after-wrapper">
+                            <img src="images/before.png">
+                            <img src="images/after.png" alt="After" class="after-image">
+                            <div class="slider-handle" id="slider1">
+                                <div class="slider-line"></div>
+                                <div class="slider-button">⟷</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="before-after-card">
+                    <div class="before-after-container" id="beforeAfter2">
+                        <div class="before-after-wrapper">
+                            <img src="images/before1.jpg">
+                            <img src="images/after1.png" alt="After" class="after-image">
+                            <div class="slider-handle" id="slider2">
+                                <div class="slider-line"></div>
+                                <div class="slider-button">⟷</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+    <!-- ===========================
+     PROJECTS SECTION (Phone Mockups with Videos)
+=========================== -->
+<section class="videos" id="projects">
+    <div class="section-header">
+        <div class="section-subtitle-container">
+            <div class="section-subtitle">🔥 My Work</div>
+        </div>
+        <h2 class="section-title">Latest Projects</h2>
+        <p class="section-description">
+            From viral short-form content to professional long-form videos, 
+            here's how I help creators stand out and connect with their audience.
+        </p>
+    </div>
+
+    <!-- Desktop: Grid Layout | Mobile/Tablet: Slider -->
+    <div class="lg:grid lg:grid-cols-3 lg:gap-8 lg:justify-items-center hidden lg:flex">
+        <!-- SHOWREEL VIDEO MOCKUP -->
+        <div class="phone-mockup">
+            <div class="phone-notch"></div>
+            <div class="phone-button"></div>
+            <div class="phone-screen">
+                <div class="video-content">
+                    <!-- Video Element for Showreel -->
+                    <video class="video-element" muted loop playsinline preload="metadata" data-autoplay="true" data-video-id="showreel">
+                        <source src="https://cpbsdxeytmehdarbjxcb.supabase.co/storage/v1/object/public/videos/showreel.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    
+                    <!-- Mute/Unmute Button -->
+                    <button class="mute-toggle" data-video-target="showreel" aria-label="Toggle sound">
+                        <span class="mute-icon">🔇</span>
+                    </button>
+                    
+                    <div class="video-info">
+                        <div class="video-category">Showreel</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SHORT-FORM VIDEO MOCKUP -->
+        <div class="phone-mockup">
+            <div class="phone-notch"></div>
+            <div class="phone-button"></div>
+            <div class="phone-screen">
+                <div class="video-content">
+                    <!-- Video Element for Short-Form -->
+                    <video class="video-element" muted loop playsinline preload="metadata" data-autoplay="true" data-video-id="shortform">
+                        <source src="https://cpbsdxeytmehdarbjxcb.supabase.co/storage/v1/object/public/videos/short-form.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    
+                    <!-- Mute/Unmute Button -->
+                    <button class="mute-toggle" data-video-target="shortform" aria-label="Toggle sound">
+                        <span class="mute-icon">🔇</span>
+                    </button>
+                    
+                    <div class="video-info">
+                        <div class="video-category">Short-Form</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ANIMATIONS VIDEO MOCKUP -->
+        <div class="phone-mockup">
+            <div class="phone-notch"></div>
+            <div class="phone-button"></div>
+            <div class="phone-screen">
+                <div class="video-content">
+                    <!-- Video Element for Animations -->
+                    <video class="video-element" muted loop playsinline preload="metadata" data-autoplay="true" data-video-id="animations">
+                        <source src="https://cpbsdxeytmehdarbjxcb.supabase.co/storage/v1/object/public/videos/animations.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    
+                    <!-- Mute/Unmute Button -->
+                    <button class="mute-toggle" data-video-target="animations" aria-label="Toggle sound">
+                        <span class="mute-icon">🔇</span>
+                    </button>
+                    
+                    <div class="video-info">
+                        <div class="video-category">Animations</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile/Tablet Slider -->
+    <div class="lg:hidden">
+        <div class="phone-slider-container relative overflow-hidden">
+            <div class="phone-slider flex transition-transform duration-300 ease-in-out" id="phoneSlider">
+                <!-- SHOWREEL VIDEO MOCKUP -->
+                <div class="phone-slide flex-shrink-0 w-full flex justify-center">
+                    <div class="phone-mockup">
+                        <div class="phone-notch"></div>
+                        <div class="phone-button"></div>
+                        <div class="phone-screen">
+                            <div class="video-content">
+                                <video class="video-element" muted loop autoplay playsinline data-video-id="showreel-mobile">
+                                    <source src="https://cpbsdxeytmehdarbjxcb.supabase.co/storage/v1/object/public/videos/showreel.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                
+                                <!-- Mute/Unmute Button -->
+                                <button class="mute-toggle" data-video-target="showreel-mobile" aria-label="Toggle sound">
+                                    <span class="mute-icon">🔇</span>
+                                </button>
+                                
+                                <div class="video-info">
+                                    <div class="video-category">Showreel</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SHORT-FORM VIDEO MOCKUP -->
+                <div class="phone-slide flex-shrink-0 w-full flex justify-center">
+                    <div class="phone-mockup">
+                        <div class="phone-notch"></div>
+                        <div class="phone-button"></div>
+                        <div class="phone-screen">
+                            <div class="video-content">
+                                <video class="video-element" muted loop autoplay playsinline data-video-id="shortform-mobile">
+                                    <source src="https://cpbsdxeytmehdarbjxcb.supabase.co/storage/v1/object/public/videos/short-form.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                
+                                <!-- Mute/Unmute Button -->
+                                <button class="mute-toggle" data-video-target="shortform-mobile" aria-label="Toggle sound">
+                                    <span class="mute-icon">🔇</span>
+                                </button>
+                                
+                                <div class="video-info">
+                                    <div class="video-category">Short-Form</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ANIMATIONS VIDEO MOCKUP -->
+                <div class="phone-slide flex-shrink-0 w-full flex justify-center">
+                    <div class="phone-mockup">
+                        <div class="phone-notch"></div>
+                        <div class="phone-button"></div>
+                        <div class="phone-screen">
+                            <div class="video-content">
+                                <video class="video-element" muted loop autoplay playsinline data-video-id="animations-mobile">
+                                    <source src="https://cpbsdxeytmehdarbjxcb.supabase.co/storage/v1/object/public/videos/animations.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                
+                                <!-- Mute/Unmute Button -->
+                                <button class="mute-toggle" data-video-target="animations-mobile" aria-label="Toggle sound">
+                                    <span class="mute-icon">🔇</span>
+                                </button>
+                                
+                                <div class="video-info">
+                                    <div class="video-category">Animations</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slider Navigation Dots -->
+            <div class="flex justify-center mt-6 space-x-2">
+                <button class="slider-dot w-3 h-3 rounded-full bg-gray-600 transition-colors duration-200" onclick="goToSlide(0)"></button>
+                <button class="slider-dot w-3 h-3 rounded-full bg-gray-600 transition-colors duration-200" onclick="goToSlide(1)"></button>
+                <button class="slider-dot w-3 h-3 rounded-full bg-gray-600 transition-colors duration-200" onclick="goToSlide(2)"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SHOW MORE BUTTON -->
+    <div class="show-more-section">
+        <button id="showMoreBtn" class="show-more-btn">Show More</button>
+    </div>
+</section>
+
+    <!-- ===========================
+         PROCESS SECTION
+    =========================== -->
+    <section class="process" id="process">
+        <div class="section-header">
+            <div class="section-subtitle-container">
+                <div class="section-subtitle">⚙️ How it works</div>
+            </div>
+            <h2 class="section-title">Process <span style="color: #a0a0a0;">Is Everything</span></h2>
+            <p class="section-description">
+                Simple, streamlined process is what gets you results
+            </p>
+        </div>
+
+        <!-- PROCESS STEPS WITH BORDER RADIUS ON CARDS -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+            <!-- STEP 1: BRIEF & RESEARCH -->
+            <div class="process-card">
+                <div class="process-number">1</div>
+                <div class="process-icon">📋</div>
+                <h3 class="process-title">Brief & Research</h3>
+                <p class="process-description">
+                    I learn about your content, audience, and goals to align with your vision. 
+                    We discuss your style preferences and any reference videos you like.
+                </p>
+                <div class="process-step">Step 1</div>
+            </div>
+
+            <!-- STEP 2: ROUGH CUT DEVELOPMENT -->
+            <div class="process-card">
+                <div class="process-number">2</div>
+                <div class="process-icon">✂️</div>
+                <h3 class="process-title">Rough Cut Development</h3>
+                <p class="process-description">
+                    I research your niche and plan a engaging, scroll-stopping edit. 
+                    The goal is to create a video that grabs attention fast.
+                </p>
+                <div class="process-step">Step 2</div>
+            </div>
+
+            <!-- STEP 3: FINAL EDIT & POLISH -->
+            <div class="process-card">
+                <div class="process-number">3</div>
+                <div class="process-icon">🎬</div>
+                <h3 class="process-title">Final Edit & Polish</h3>
+                <p class="process-description">
+                    I turn the concept into a bold, clean video that pops at any size. 
+                    Every detail is optimized to increase engagement and stand out.
+                </p>
+                <div class="process-step">Step 3</div>
+            </div>
+
+            <!-- STEP 4: REVIEW & HAND OVER -->
+            <div class="process-card">
+                <div class="process-number">4</div>
+                <div class="process-icon">🚀</div>
+                <h3 class="process-title">Review & Hand Over</h3>
+                <p class="process-description">
+                    You review the first version, and I revise based on your feedback. 
+                    Then I deliver the final high-quality video, ready to upload.
+                </p>
+                <div class="process-step">Step 4</div>
+            </div>
+        </div>
+
+        <!-- PROCESS BOTTOM SECTION (Guarantee & CTA) -->
+        <div class="process-bottom flex flex-col lg:flex-row lg:justify-between lg:items-center gap-6 lg:gap-0">
+            <div class="process-guarantee">
+                <div class="guarantee-icon">✅</div>
+                <div>
+                    <div class="guarantee-text">I am with you in every step</div>
+                    <div class="guarantee-subtext">alongside you at each step for seamless experience</div>
+                </div>
+            </div>
+            <div class="process-cta flex flex-col sm:flex-row gap-4">
+                <a href="#projects" class="btn-secondary">See All Projects</a>
+                <a href="https://almarinezb.github.io/bma.visuals-socials" target="_blank" rel="noopener noreferrer" class="btn-primary">Contact Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+         FAQ & TESTIMONIALS SECTION
+    =========================== -->
+    <section class="faq-section" id="testimonials">
+        <div class="faq-container">
+            <!-- LEFT SIDE: QUICK INFO CARD -->
+            <div class="testimonial-card hidden lg:block">
+                <div class="testimonial-header">
+                    <div class="client-avatar">
+                        <div class="info-icon">🎬</div>
+                    </div>
+                    <div class="client-info">
+                        <h3 class="client-name">Need Quick Answers?</h3>
+                        <p class="client-title">Here's what most clients ask me before starting a video project.</p>
+                    </div>
+                </div>
+                
+                <div class="testimonial-content">
+                    <div class="info-highlights">
+                        <div class="highlight-item">
+                            <span class="highlight-icon">⚡</span>
+                            <span class="highlight-text">Fast turnaround times</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-icon">🔄</span>
+                            <span class="highlight-text">Unlimited revisions</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-icon">📱</span>
+                            <span class="highlight-text">Platform-optimized videos</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-icon">✨</span>
+                            <span class="highlight-text">Professional quality guaranteed</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-actions">
+                    <a href="#projects" class="btn-secondary">See All Projects</a>
+                    <a href="https://almarinezb.github.io/bma.visuals-socials" target="_blank" rel="noopener noreferrer" class="btn-primary">Contact Now</a>
+
+                </div>
+            </div>
+
+            <!-- RIGHT SIDE: FAQ ACCORDION -->
+            <div class="faq-accordion">
+                <div class="faq-header">
+                    <div class="section-subtitle-container">
+                        <div class="section-subtitle">❓ FAQ</div>
+                    </div>
+                    <h2 class="faq-title">Frequently Asked Questions</h2>
+                    <p class="faq-description">Everything you need to know about working with me</p>
+                </div>
+
+                <div class="faq-items">
+                    <!-- FAQ Item 1 -->
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            <span>What do you need from me to get started?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>I need your raw footage, any specific requirements or style preferences, your target platform (YouTube, TikTok, etc.), and a brief description of your vision. If you have reference videos or branding guidelines, those are helpful too!</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 2 -->
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            <span>How long does it take to edit a video?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Turnaround time depends on complexity and project scope. Short-form content (TikTok, Reels) typically takes 2-3 hours, while long-form videos usually take around 5 hours. For clients I work with regularly, I can often expedite the process since I'm already familiar with your style and preferences.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 3 -->
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            <span>What editing software do you use?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>I primarily use Adobe Premiere Pro for editing, After Effects for motion graphics and animations, and Photoshop for custom thumbnails and graphics. This ensures professional quality and compatibility with industry standards.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 4 -->
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            <span>How many revisions do you provide?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>I offer unlimited revisions, but within reason, to make sure the project moves forward efficiently. My goal is to deliver exactly what you envision, and I'm happy to refine the edit until you're completely satisfied. For ongoing partnerships, this collaborative approach becomes even smoother as I learn your preferences.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 5 -->
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            <span>Can you edit for YouTube, TikTok, Instagram, or all platforms?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Absolutely! I'm experienced with all major platforms and their specific requirements. I can optimize your content for YouTube (16:9), TikTok/Instagram Reels (9:16), Instagram feed posts (1:1), or create multiple versions from the same footage.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 6 -->
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            <span>Can you match my branding or style?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes! I can adapt to any style or branding guidelines you have. Whether it's a specific color palette, font choices, animation style, or overall aesthetic, I'll ensure your videos maintain brand consistency across all content.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 7 -->
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            <span>Do you offer color grading and motion graphics?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Definitely! I provide professional color grading to enhance the visual appeal of your footage, and I create custom motion graphics, text animations, logo animations, and kinetic typography to make your content stand out.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 8 -->
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            <span>In what format will I receive the final video?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>I deliver videos in high-quality MP4 format, optimized for your chosen platform. I can also provide different resolutions (1080p, 4K) and formats if needed. Files are shared via Google Drive or WeTransfer for easy download.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 9 -->
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            <span>How much are your rates?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Pricing depends on the project scope anda long-term collaboration. Please leave me a message so we can talk it out and build a package that works best for both of us. I value building lasting partnerships with creators and businesses, and I'm happy to create custom solutions that fit your ongoing content needs and budget.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 10 -->
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            <span>How do I contact you or place an order?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>You can reach me through the contact form on this website, email me directly, or message me on social media. I typically respond within 24 hours and we can discuss your project details and timeline right away!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- ===========================
+     FOOTER SECTION
+=========================== -->
+<footer class="footer">
+    <div class="footer-container">
+        <!-- Footer Top Section -->
+        <div class="footer-top">
+            <!-- Brand Column -->
+            <div class="footer-column footer-brand">
+                <a href="#" class="footer-logo">BMA visuals</a>
+                <p class="footer-tagline">
+                    Crafting scroll-stopping videos that boost engagement and give creators viral potential.
+                </p>
+                <div class="footer-socials">
+                    <a href="https://almarinezb.github.io/bma.visuals-socials" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Contact & Socials">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                    </a>
+                    <a href="https://almarinezb.github.io/bma.visuals-socials" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                    <a href="https://almarinezb.github.io/bma.visuals-socials" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="YouTube">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+                            <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+                        </svg>
+                    </a>
+                    <a href="https://almarinezb.github.io/bma.visuals-socials" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="TikTok">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Quick Links Column -->
+            <div class="footer-column">
+                <h4 class="footer-heading">Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#process">Process</a></li>
+                    <li><a href="#testimonials">FAQ</a></li>
+                    <li><a href="#" onclick="document.getElementById('showMoreBtn').click(); return false;">Portfolio</a></li>
+                </ul>
+            </div>
+
+            <!-- Services Column -->
+            <div class="footer-column">
+                <h4 class="footer-heading">Services</h4>
+                <ul class="footer-links">
+                    <li><a href="#projects">Short-Form Editing</a></li>
+                    <li><a href="#projects">Long-Form Videos</a></li>
+                    <li><a href="#projects">Motion Graphics</a></li>
+                    <li><a href="#projects">Color Grading</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Column -->
+            <div class="footer-column">
+                <h4 class="footer-heading">Get In Touch</h4>
+                <ul class="footer-links">
+                    <li>
+                        <a href="https://almarinezb.github.io/bma.visuals-socials" target="_blank" rel="noopener noreferrer" class="footer-cta-link">
+                            <span class="cta-icon">🎬</span>
+                            <span>Start Your Project</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://almarinezb.github.io/bma.visuals-socials" target="_blank" rel="noopener noreferrer">
+                            Contact & Socials
+                        </a>
+                    </li>
+                </ul>
+                <div class="footer-availability">
+                    <span class="availability-dot"></span>
+                    <span>Available for new projects</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Divider -->
+        <div class="footer-divider"></div>
+
+        <!-- Footer Bottom Section -->
+        <div class="footer-bottom">
+            <p class="footer-copyright">
+                © 2025 <span class="highlight-text">BMA visuals</span>. All rights reserved.
+            </p>
+            <div class="footer-credits">
+                <span>Crafted with</span>
+                <span class="heart-icon">♥</span>
+                <span>for creators</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
+</footer>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
