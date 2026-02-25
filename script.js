@@ -567,7 +567,7 @@
         if (video.muted) {
             // Unmute the video
             video.muted = false;
-            video.volume = 1.0; // Ensure volume is at max
+            video.volume = 0.5; // Ensure volume is at max
             button.classList.add('unmuted');
             button.querySelector('.mute-icon').textContent = '🔊';
             button.setAttribute('aria-label', 'Mute sound');
@@ -663,7 +663,7 @@
         if (video.muted) {
             // Unmute
             video.muted = false;
-            video.volume = 1.0;
+            video.volume = 0.5;
             button.classList.add('unmuted');
             button.querySelector('.mute-icon').textContent = '🔊';
             button.setAttribute('aria-label', 'Mute sound');
